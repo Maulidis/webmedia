@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1038162565366",
+    "project_id": "aplikasi-webmedia",
+    "storage_bucket": "aplikasi-webmedia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038162565366:android:e78f4cdae8b4f50038f4d7",
+        "android_client_info": {
+          "package_name": "com.webmedia.webmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038162565366-cn60r0hl5np6svommam8bsu0kkdjp5ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.webmedia.webmedia",
+            "certificate_hash": "8248c214544bea29df29814151d72f5f4faa7179"
+          }
+        },
+        {
+          "client_id": "1038162565366-n4cgjn1q5kv025e5dqqiv1itirnsncj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDvM1ZWryqvTU_JYTYEEc5IMFu5rJWAFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038162565366-n4cgjn1q5kv025e5dqqiv1itirnsncj4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
