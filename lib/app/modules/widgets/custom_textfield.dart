@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
+   CustomTextField(
     {Key? key, 
     required this.hint, 
     this.obscureText =false, 
     this.controller, 
-    this.keyboardType = TextInputType.text,
+    this.keyboardType = TextInputType.text, 
     }) : super(key: key);
 
   final String hint;
@@ -14,8 +14,11 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType keyboardType;
 
+  final _formKey = GlobalKey<FormState>();
+
   Widget build(BuildContext context) {
     return Container(
+      key: _formKey,
       padding: EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           color: const Color(0xffffffff),

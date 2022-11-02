@@ -1,26 +1,67 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import '../routes/app_pages.dart';
 
 class AunthController extends GetxController {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
+
+  // final GlobalKey<FormState> _fromkey = GlobalKey<FormState>();
+  final firestoreInstance = FirebaseFirestore.instance;
 
   Stream<User?> StreamAuthStatus() {
     return auth.authStateChanges();
   }
 
-  void signup(String email, String password) async {
+  void signup(
+      String nama,
+      String email,
+      String password,
+      String passwordConfirm,
+      String alamat,
+      String noHp,
+      String tgl_lahir,
+      String jenis_kelamin) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    // User? user;
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+       await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      var firebaseUser = FirebaseAuth.instance.currentUser;
+      firestoreInstance.collection("users").doc(firebaseUser!.uid).set({
+        "name": nama,
+        "tanggal lahir": tgl_lahir,
+        "jenis kelamin": jenis_kelamin,
+        "email": email,
+        "no hp": noHp,
+        "alamat": alamat,
+      }).then((value) {
+        print("success!");
+
+        var firebaseUser = FirebaseAuth.instance.currentUser;
+        firestoreInstance
+            .collection("users")
+            .doc(firebaseUser!.uid)
+            .get()
+            .then((value) {
+          print(value.data());
+        });
+      });
+      // user = userCredential.user;
+      // // ignore: deprecated_member_use
+      // await user!.updateProfile(displayName: nama);
+      // await user.reload();
+      // user = auth.currentUser;
+
       Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('The password provided is to weak.');
-      } else if (e.code == 'email-already-in-use') {
+      } else if (e.code == 'emai-already-in-use') {
         print('The account alredy exist for the email.');
       }
     } catch (e) {
@@ -34,6 +75,14 @@ class AunthController extends GetxController {
         email: email,
         password: password,
       );
+      var firebaseUser = FirebaseAuth.instance.currentUser;
+      firestoreInstance
+          .collection("users")
+          .doc(firebaseUser!.uid)
+          .get()
+          .then((value) {
+        print(value.data());
+      });
       Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

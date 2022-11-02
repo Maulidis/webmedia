@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../../../constans.dart';
 import '../../../routes/app_pages.dart';
-import '../../widgets/custom_textfield.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
@@ -44,37 +43,40 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 40,
               ),
-              CustomTextField(
-                hint: 'Nama',
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hint: 'No Handphone',
-                obscureText: true,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hint: 'Email',
-                obscureText: true,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hint: 'Tanggal Lahir',
-                obscureText: true,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomTextField(
-                hint: 'Alamat',
-                obscureText: true,
-              ),
+              // CustomTextField(
+              //   hint: 'Nama',
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextField(
+              //   hint: 'Email',
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextField(
+              //   hint: 'Alamat',
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextField(
+              //   hint: 'No Telpon',
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextField(
+              //   hint: 'Tanggal Lahir',
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // CustomTextField(
+              //   hint: 'Jenis Kelamin',
+              // ),
+              
               SizedBox(
                 height: 20,
               ),

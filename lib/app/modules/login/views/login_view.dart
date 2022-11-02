@@ -62,7 +62,7 @@ class LoginView extends GetView<LoginController> {
               //button login
               CustomButton(
                 label: "Login",
-                onPressed: () => authC.login(emailC.text, passC.text),
+                onPressed: () => authC.login(emailC.text, passC.text, ),
               ),
 
               SizedBox(

@@ -1,19 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:webmedia/app/controllers/aunth_controller.dart';
-import 'package:webmedia/app/modules/widgets/custom_button.dart';
 import 'package:webmedia/app/modules/widgets/custom_textfield.dart';
 import 'package:webmedia/constans.dart';
-
 import '../../../routes/app_pages.dart';
+import '../../widgets/custom_button.dart';
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {
+  final namaC = TextEditingController();
+  final alamatC = TextEditingController();
+  final noHpC = TextEditingController();
+  final tgl_lahirC = TextEditingController();
+  final jenis_kelamin = TextEditingController();
   //const LoginView({Key? key}) : super(key: key);
   final emailC = TextEditingController();
-  final passC = TextEditingController();
+  final pwdInput = TextEditingController();
+  final confirmPwd = TextEditingController();
   final authC = Get.find<AunthController>();
 
   @override
@@ -26,7 +30,7 @@ class SignupView extends GetView<SignupController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 120,
+                height: 80,
               ),
               Align(
                 alignment: Alignment.center,
@@ -44,6 +48,27 @@ class SignupView extends GetView<SignupController> {
                 height: 50,
               ),
               CustomTextField(
+                controller: namaC,
+                hint: 'nama',
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                controller: tgl_lahirC,
+                hint: 'tanggal lahir',
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                controller: jenis_kelamin,
+                hint: 'jenis kelamin',
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
                 controller: emailC,
                 hint: 'Email',
               ),
@@ -51,18 +76,49 @@ class SignupView extends GetView<SignupController> {
                 height: 10,
               ),
               CustomTextField(
-                controller: passC,
+                controller: pwdInput,
                 hint: 'Password',
                 obscureText: true,
               ),
               SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                controller: confirmPwd,
+                hint: 'Confirm Password',
+                obscureText: true,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                controller: noHpC,
+                hint: 'no hp',
+              ), 
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextField(
+                controller: alamatC,
+                hint: 'alamat',
+              ),     
+              
+              SizedBox(
                 height: 20,
               ),
-
-              //button login
+              
               CustomButton(
                 label: "Daftar",
-                onPressed: () => authC.signup(emailC.text, passC.text),
+                onPressed: ()=> authC.signup(
+                  namaC.text, 
+                  emailC.text, 
+                  pwdInput.text,
+                  confirmPwd.text, 
+                  alamatC.text, 
+                  noHpC.text, 
+                  tgl_lahirC.text,
+                  jenis_kelamin.text
+                  ),
               ),
 
               SizedBox(

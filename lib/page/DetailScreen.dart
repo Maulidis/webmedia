@@ -79,6 +79,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 Text(
                   "${todo.deskripsi}",
+                  textAlign: TextAlign.justify,
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.normal,
