@@ -3,8 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webmedia/app/controllers/aunth_controller.dart';
+import 'app/modules/semua_kelas/controllers/semua_kelas_controller.dart';
 import 'app/routes/app_pages.dart';
-import 'package:webmedia/app/modules/home/controllers/home_controller.dart';
 
 import 'app/utils/loading.dart';
 
@@ -12,7 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // Get.put<HomeController>(HomeController());
-  Get.put<HomeController>(HomeController());
+  Get.put<SemuaKelasController>(SemuaKelasController());
 
   runApp(MyApp());
 }
@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: "Application",
-            initialRoute: snapshot.data != null ? Routes.HOME : Routes.LOGIN,
+            initialRoute: snapshot.data != null && snapshot.data!.emailVerified == true 
+            ? Routes.HOME  
+            : Routes.WELCOME_SCREEN,
             // home: snapshot.data != null ? HomeView() : LoginView(),
             getPages: AppPages.routes,
           );

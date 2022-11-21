@@ -18,6 +18,7 @@ class BimbelProvider extends GetConnect {
     // final response = await get('http://192.168.100.8/projek-api/api/mahasiswa');
     final response = await get('$baseUrl/api/mahasiswa');
     return Bimbel.fromJsonList(response.body["data"]);
+    
   }
   
 }

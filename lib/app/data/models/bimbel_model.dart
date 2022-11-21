@@ -51,6 +51,7 @@ class Bimbel {
 
     return data;
   }
+  
   static List<Bimbel> fromJsonList(List? data) {
     if (data == null || data.length == 0) return [];
     return data.map((e) => Bimbel.fromJson(e)).toList();

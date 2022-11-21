@@ -1,14 +1,17 @@
 import 'package:get/get.dart';
-import 'package:webmedia/app/data/models/bimbel_model.dart';
-import '../../../data/models/bimbel_model.dart';
-import '../../../data/providers/bimbel_provider.dart';
-class HomeController extends GetxController {
-  BimbelProvider kelasprov = BimbelProvider();
+import 'package:webmedia/app/data/models/kelas_online_model.dart';
 
-  Future<Bimbel?> getSingleKelas(int id)async{
-   return await kelasprov.getKelas(id);
+import '../../../data/providers/kelas_online_provider.dart';
+
+class HomeController extends GetxController {
+  //TODO: Implement SemuaKelasController
+  KelasOnlineProvider onlinekelasprov = KelasOnlineProvider();
+
+  Future<KelasOnline?> getSingleKelas(int id) async {
+    return await onlinekelasprov.getKelas(id);
   }
-  Future<List<Bimbel>> getAllKelas() async{
-    return await kelasprov.getAllKelas();
+
+  Future<List<KelasOnline>> getAllKelas() async {
+    return await onlinekelasprov.getAllKelas();
   }
 }
