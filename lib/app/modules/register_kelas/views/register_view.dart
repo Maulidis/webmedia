@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:webmedia/app/modules/widgets/custom_button.dart';
 
 import '../../../../constans.dart';
-import '../../../routes/app_pages.dart';
+import '../../widgets/custom_textfield.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
-  const RegisterView({Key? key}) : super(key: key);
+   RegisterView({Key? key}) : super(key: key);
+
+  final namaC = TextEditingController();
+  final noHpC = TextEditingController();
+  final emailC = TextEditingController();
+  final alamatC = TextEditingController();
+  final kelas = Get.find<RegisterController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +25,14 @@ class RegisterView extends GetView<RegisterController> {
         foregroundColor: kText,
       ),
       body: SingleChildScrollView(
+        
         child: Padding( 
           padding: const EdgeInsets.all(15.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 50,
+                height: 30,
               ),
               Align(
                 alignment: Alignment.center, 
@@ -43,54 +52,61 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 40,
               ),
-              // CustomTextField(
-              //   hint: 'Nama',
-              // ),
+              CustomTextField(
+                controller: namaC,
+                hint: 'Nama', 
+                icon: Icons.person,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              CustomTextField(
+                controller: noHpC,
+                hint: 'No Telpon',
+                icon: Icons.call,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              CustomTextField(
+                controller: emailC,
+                hint: 'Email',
+                icon: Icons.email,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              CustomTextField(
+                controller: alamatC,
+                hint: 'Alamat',
+                icon: Icons.home,
+              ),
               // SizedBox(
-              //   height: 10,
-              // ),
-              // CustomTextField(
-              //   hint: 'Email',
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-              // CustomTextField(
-              //   hint: 'Alamat',
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
-              // CustomTextField(
-              //   hint: 'No Telpon',
-              // ),
-              // SizedBox(
-              //   height: 10,
+              //   height: 15,
               // ),
               // CustomTextField(
               //   hint: 'Tanggal Lahir',
+              //   icon: Icons.calendar_month,
               // ),
               // SizedBox(
-              //   height: 10,
+              //   height: 15,
               // ),
               // CustomTextField(
               //   hint: 'Jenis Kelamin',
+              //   icon: Icons.group,
               // ),
               
               SizedBox(
                 height: 20,
               ),
               //button login
-              SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () => Get.toNamed(Routes.HOME),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  child: Text(" Daftar "),
-                ),
+              CustomButton(
+                label: 'Daftar',
+                  onPressed: () => kelas.registerkelas(
+                    namaC.text, 
+                    noHpC.text, 
+                    emailC.text, 
+                    alamatC.text),
               ),
 
               SizedBox(
@@ -103,21 +119,6 @@ class RegisterView extends GetView<RegisterController> {
                     fontSize: 20,
                     color: Color(0xff949494),
                   ),
-                  children: [
-                    // TextSpan(
-                    //   text: 'Sudah punya akun?',
-                    // ),
-                    // TextSpan(
-                    //     text: ' Login ',
-                    //     recognizer: TapGestureRecognizer()
-                    //       ..onTap = () {
-                    //         Get.toNamed(Routes.LOGIN);
-                    //       },
-                    //     style: TextStyle(
-                    //       color: Color(0xff6b7afc),
-                    //       fontWeight: FontWeight.w600,
-                    //     ))
-                  ],
                 ),
                 textHeightBehavior:
                     TextHeightBehavior(applyHeightToFirstAscent: false),
