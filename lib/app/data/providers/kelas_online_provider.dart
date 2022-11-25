@@ -26,7 +26,7 @@ class KelasOnlineProvider extends GetConnect {
 
   Future<List<KelasOnline>> getAllKelas() async {
     // final response = await get('http://192.168.1.9/projek-api/api/mahasiswa');
-    final response = await get('http://192.168.1.7/projek-api/api/mahasiswa');
+    final response = await get('http://192.168.5.73/projek-api/api/mahasiswa');
     return KelasOnline.fromJsonList(response.body["data"]);
   }
 }

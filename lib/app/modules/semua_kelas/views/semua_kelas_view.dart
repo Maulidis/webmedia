@@ -46,12 +46,12 @@ class _SemuaKelasViewState extends State<SemuaKelasView> {
           centerTitle: true,
           elevation: 0,
           foregroundColor: kText,
-          actions: [
-            IconButton(
-              onPressed: () => authC.logout(),
-              icon: Icon(Icons.logout),
-            ),
-          ],
+          // actions: [
+          //   IconButton(
+          //     onPressed: () => authC.logout(),
+          //     icon: Icon(Icons.logout),
+          //   ),
+          // ],
         ),
         backgroundColor: kWhite,
         body: FutureBuilder<List<Bimbel>>(

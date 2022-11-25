@@ -9,7 +9,7 @@ import '../../../routes/app_pages.dart';
 import '../../detail_online_kelas.dart/DetailOnlineKelas.dart';
 import '../controllers/home_controller.dart';
 import '../widget/bootom_appbar.dart';
-import '../widget/title_appbar.dart';
+import '../widget/nav-drawer.dart';
 
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key,}) : super(key: key);
@@ -24,8 +24,21 @@ class HomeView extends GetView<HomeController> {
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: kWhite,
-        title: TitleAppbar(),
+        leading: Icon(
+          Icons.account_circle_rounded,
+        color: kButton,
+        ),title: Text(
+          "Hi Maulidis", 
+        style: TextStyle(
+          color: kButton),
+        ),
+        // title: TitleAppbar(),
+        iconTheme: IconThemeData(
+          size: 30, //change size on your need
+          color: kButton, //change color on your need
+        ),
       ),
+      endDrawer: DrawerWidget(),
       backgroundColor: kWhite,
       body: FutureBuilder<List<KelasOnline>>(
         future: controller.getAllKelas(),
