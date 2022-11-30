@@ -1,4 +1,5 @@
-import 'dart:convert';
+
+
 import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webmedia/app/data/providers/api.dart';
-import '../home.dart';
 import '../routes/app_pages.dart';
 
 class AunthController extends GetxController {
@@ -65,7 +65,7 @@ class AunthController extends GetxController {
 
       print(response.body);
       
-      //cloud firebase
+        //cloud firebase
       // var firebaseUser = FirebaseAuth.instance.currentUser;
       // firestoreInstance.collection("users").doc(firebaseUser!.uid).set({
       //   "name": nama,
@@ -132,9 +132,10 @@ class AunthController extends GetxController {
       UserCredential myUser = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
+
       );
         //cloud firebase
-      // var firebaseUser = FirebaseAuth.instance.currentUser;
+      var firebaseUser = FirebaseAuth.instance.currentUser;
       // firestoreInstance
       //     .collection("users")
       //     .doc(firebaseUser!.uid)
@@ -147,9 +148,14 @@ class AunthController extends GetxController {
       // if (currentUser != null) {
       //   print(currentUser.uid);
       // }
-      if(myUser.user!.emailVerified){
+      
+      // if( firebaseUser!.uid == "Eyu4a8jLzqPRzjYmIMiETg5aQKh2"){
+      //   Get.offAllNamed(Routes.ADMIN);
+      // }
+       if(myUser.user!.emailVerified) {
         Get.offAllNamed(Routes.HOME);
-      }else{
+      }
+      else{
         Get.defaultDialog(
           title: "Verification Email",
           middleText: "Kamu perlu verifikasi email terlebih dahulu. Apakah anda ingin dikirimkan verifikasi ulang",
