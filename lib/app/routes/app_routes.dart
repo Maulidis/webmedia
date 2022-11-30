@@ -9,6 +9,8 @@ abstract class Routes {
   static const SIGNUP = _Paths.SIGNUP;
   static const WELCOME_SCREEN = _Paths.WELCOME_SCREEN;
   static const SEMUA_KELAS = _Paths.SEMUA_KELAS;
+  static const PROFILE = _Paths.PROFILE;
+  static const ADMIN = _Paths.ADMIN;
 }
 
 abstract class _Paths {
@@ -19,4 +21,6 @@ abstract class _Paths {
   static const SIGNUP = '/signup';
   static const WELCOME_SCREEN = '/welcome-screen';
   static const SEMUA_KELAS = '/semua-kelas';
+  static const PROFILE = '/profile';
+  static const ADMIN = '/admin';
 }
